@@ -3,7 +3,7 @@
  */
 
 const nextConfig = {
-    output: 'export'
+  output: 'export'
 }
 
-module.exports = nextConfig
+export default nextConfig
