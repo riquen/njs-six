@@ -1,5 +1,6 @@
 {
   "name": "njs-six",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +10,9 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "deploy:prod": "npm run build && vercel ./build --yes --token=$VERCEL_TOKEN --prod"
+    "deploy:staging": "npm run build && vercel ./build --yes --token=$VERCEL_TOKEN",
+    "deploy:prod": "npm run deploy:staging --prod",
+    "deploy:preview": "node ./scripts/pullRequestPreview.js"
   },
   "keywords": [],
   "author": "",

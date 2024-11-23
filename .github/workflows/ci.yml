@@ -1,5 +1,10 @@
 name: CI - Main Workflow
 
+env:
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
 on:
   pull_request:
     types: [opened, synchronize]
@@ -18,3 +23,15 @@ jobs:
 
       - name: Linter
         run: npm run lint
+
+  preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Preview
+        run: npm run deploy:preview
