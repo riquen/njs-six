@@ -13,7 +13,7 @@ console.log(`Your preview is ready at: ${DEPLOY_URL}`)
 // ==========*****GITHUB*****==========
 console.log('[GITHUB_COMMENT]: START')
 
-const { GITHUB_TOKEN, GITHUB_REPOSITORY, PULL_REQUEST_NUMBER } = process.env
+const { GITHUB_TOKEN, GITHUB_REPOSITORY, GITHUB_PR_NUMBER } = process.env
 const GH_COMMENT = `
 - Deploy URL: [${DEPLOY_URL}](${DEPLOY_URL})
 `
@@ -22,7 +22,7 @@ defaultHeaders['authorization'] = `token ${GITHUB_TOKEN}`
 defaultHeaders['accept'] = 'application/vnd.github.v3+json, application/vnd.github.antiope-preview+json'
 defaultHeaders['content-type'] = 'application/json'
 
-fetch(`https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PULL_REQUEST_NUMBER}/comments`, {
+fetch(`https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${GITHUB_PR_NUMBER}/comments`, {
   headers: defaultHeaders,
   method: 'POST',
   body: JSON.stringify({
