@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "rm -rf build && next build && mv ./out ./build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,11 @@
     "next": "^15.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "eslint": "9.15.0",
+    "eslint-config-next": "15.0.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1"
   }
 }
