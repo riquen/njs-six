@@ -1,5 +1,4 @@
 import { execSync } from 'child_process'
-import fetch from 'node-fetch'
 
 // ==========*****VERCEL*****==========
 console.log('[DEPLOY_PREVIEW]: START')
@@ -20,7 +19,7 @@ const GH_COMMENT = `
 `
 const defaultHeaders = {}
 defaultHeaders['authorization'] = `token ${GITHUB_TOKEN}`
-defaultHeaders['accept'] = 'application/vnd.github.v3+json, application/vnd.github.antiope-preview+json'
+defaultHeaders['accept'] = 'application/vnd.github.v4+json, application/vnd.github.antiope-preview+json'
 defaultHeaders['content-type'] = 'application/json'
 
 fetch(`https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${GITHUB_PR_NUMBER}/comments`, {
